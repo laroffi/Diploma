@@ -1,7 +1,7 @@
-version: '3.8'
+version: '3.10'
 services:
   mysql:
-    image: mysql:8.0.18
+    image: mysql:8.0.27
     ports:
       - '3306:3306'
     volumes:
@@ -13,7 +13,7 @@ services:
       - MYSQL_PASSWORD=pass
 
   postgres:
-    image: postgres:12.0-alpine
+    image: postgres:14.0-alpine
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=app
@@ -24,4 +24,10 @@ services:
 
     volumes:
       - ./data_postgres:/var/lib/postgresql
+
+  node-app:
+      build: ./gate-simulator
+      image: node-app:Dockerfile.0
+      ports:
+        - '9999:9999'
 
