@@ -23,16 +23,16 @@ allure {
 
     dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-        testImplementation 'com.codeborne:selenide:5.25.0-selenium-4.0.0'
+        testImplementation 'com.codeborne:selenide:6.0.3'
         testImplementation 'com.github.javafaker:javafaker:1.0.2'
         testImplementation 'io.rest-assured:rest-assured:4.4.0'
-        testImplementation 'com.google.code.gson:gson:2.8.8'
+        testImplementation 'com.google.code.gson:gson:2.8.9'
         testImplementation 'mysql:mysql-connector-java:8.0.25'
         testImplementation 'org.hamcrest:hamcrest-library:2.2'
         testImplementation 'commons-dbutils:commons-dbutils:1.7'
         testImplementation group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
-        testImplementation 'io.qameta.allure:allure-selenide:2.15.0'
-        testCompile 'ch.qos.logback:logback-classic:1.2.6'
+        testImplementation 'io.qameta.allure:allure-selenide:2.16.1'
+        testCompile 'ch.qos.logback:logback-classic:1.2.7'
     }
 
     test {
