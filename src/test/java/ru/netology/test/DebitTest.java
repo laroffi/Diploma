@@ -22,9 +22,8 @@ public class DebitTest {
     }
 
     @BeforeEach
-    public void openPage() {
-        String url = System.getProperty("sut.url");
-        open(url);
+    public void setUp() {
+        open("http://localhost:8080");
     }
     @AfterEach
     public void clearDB() {
