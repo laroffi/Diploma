@@ -32,6 +32,7 @@ public class DebitTest {
     //Happy path
 
     @Test
+    @DisplayName("Покупка по карте APPROVED")
     void shouldConfirmValidDebitCard() {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
@@ -39,4 +40,14 @@ public class DebitTest {
         debitPage.waitForSuccessedNotification();
         assertEquals("APPROVED", SqlUtils.findPaymentStatus());
     }
+
+    @Test
+    @DisplayName("Покупка по карте DECLINED")
+    void shouldDeclineInvalidCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getDeclinedCardInfo());
+        debitPage.waitForFailedNotification();
+        assertEquals("DECLINED", SqlUtils.findPaymentStatus());
+        }
 }
