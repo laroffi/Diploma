@@ -1,5 +1,6 @@
 package ru.netology.data;
 
+import com.mysql.cj.jdbc.Driver;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
@@ -11,6 +12,7 @@ public class SqlUtils {
     private static final String url = System.getProperty("db.url");
     private static final String user = System.getProperty("db.user");
     private static final String password = System.getProperty("db.password");
+
 
     public static void clearTables () {
         val cleanCreditRequest = "DELETE FROM credit_request_entity;";

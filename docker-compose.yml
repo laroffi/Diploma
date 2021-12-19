@@ -24,7 +24,6 @@ services:
 
     volumes:
       - ./data_postgres:/var/lib/postgresql
-
   node-app:
       build: ./gate-simulator
       image: node-app:Dockerfile.0

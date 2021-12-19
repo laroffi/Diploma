@@ -52,10 +52,10 @@ public class DebitPage {
     }
 
     public void waitForSuccessedNotification() {
-        successedNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        successedNotification.shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
     public void waitForFailedNotification() {
-        failedNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        failedNotification.shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
     public void cardNumberFail () {
         wrongCardField.shouldBe(Condition.visible);

@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.mysql.jdbc.Driver;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
@@ -29,7 +30,7 @@ public class DebitTest {
     public void clearDB() {
         SqlUtils.clearTables();
     }
-    //Happy path
+
 
     @Test
     @DisplayName("Покупка по карте APPROVED")
