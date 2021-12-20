@@ -31,6 +31,7 @@ public class DebitPage {
     private SelenideElement wrongCVCField = $(byText("CVC/CVV")).parent().$(".input__sub");
     private SelenideElement expiredCardNotification = $(byText("Истёк срок действия карты"));
 
+
     public DebitPage () {
         debitHeading.shouldBe(Condition.visible);
     }
@@ -67,10 +68,11 @@ public class DebitPage {
         wrongYearField.shouldBe(Condition.visible);
     }
     public void ownerFail () {
-        wrongOwnerField.shouldBe(Condition.visible);
+        wrongOwnerField.shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
     public void CVCFail () {
         wrongCVCField.shouldBe(Condition.visible);
     }
+    public void expiredFail() { expiredCardNotification.shouldBe(Condition.visible); }
 
 }

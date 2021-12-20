@@ -17,7 +17,7 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4442", "22", "07", faker.name().fullName(), "978");
     }
     public static CardInfo getWrongCardInfo() {
-        return new CardInfo("4444 4444 4444 4440", "22", "08", faker.name().fullName(), "999");
+        return new CardInfo("4444 4444 4444 4444", "22", "08", faker.name().fullName(), "999");
     }
     public static CardInfo getShortCardInfo() {
         return new CardInfo("4444 4444 4444 444", "23", "10", faker.name().fullName(), "105");
@@ -27,6 +27,9 @@ public class DataHelper {
     }
     public static CardInfo getFutureYearCardInfo() {
         return new CardInfo("4444 4444 4444 4441", "28", "09", faker.name().fullName(), "111");
+    }
+    public static CardInfo getExpiredMonthCardInfo() {
+        return new CardInfo("4444 4444 4444 4441", "25", "10", faker.name().fullName(), "125");
     }
     public static CardInfo getWrongMonthCardInfo() {
         return new CardInfo("4444 4444 4444 4441", "23", "17", faker.name().fullName(), "123");

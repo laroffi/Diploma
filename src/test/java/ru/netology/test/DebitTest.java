@@ -31,9 +31,8 @@ public class DebitTest {
         SqlUtils.clearTables();
     }
 
-
     @Test
-    @DisplayName("Покупка по карте APPROVED")
+    @DisplayName("Payment with card APPROVED")
     void shouldConfirmValidDebitCard() {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
@@ -41,9 +40,8 @@ public class DebitTest {
         debitPage.waitForSuccessedNotification();
         assertEquals("APPROVED", SqlUtils.findPaymentStatus());
     }
-
     @Test
-    @DisplayName("Покупка по карте DECLINED")
+    @DisplayName("Payment with card DECLINED")
     void shouldDeclineInvalidCard() {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
@@ -51,4 +49,104 @@ public class DebitTest {
         debitPage.waitForFailedNotification();
         assertEquals("DECLINED", SqlUtils.findPaymentStatus());
         }
+    @Test
+    @DisplayName("Payment with wrong Card")
+    void shouldFailWrongCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getWrongCardInfo());
+        debitPage.waitForFailedNotification();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+        }
+    @Test
+    @DisplayName("Payment with short number Card")
+    void shouldFailShortNumberCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getShortCardInfo());
+        debitPage.cardNumberFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with expired year Card")
+    void shouldFailExpiredYearCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getExpiredYearCardInfo());
+        debitPage.expiredFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with expired month Card")
+    void shouldFailExpiredMonthCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getExpiredYearCardInfo());
+        debitPage.expiredFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with future Card number")
+    void shouldFailFutureYearCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getFutureYearCardInfo());
+        debitPage.yearFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with not filled Card number")
+    void shouldFailEmptyCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getNullCardInfo());
+        debitPage.cardNumberFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with cyrillic name Card")
+    void shouldFailCyrillicNameCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getRusOwnerCardInfo());
+        debitPage.ownerFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with wrong month Card")
+    void shouldFailWrongMonthCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getWrongMonthCardInfo());
+        debitPage.monthFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+
+    @Test
+    @DisplayName("Payment with symbols name Card")
+    void shouldFailSymbolsNameCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getWrongOwnerCardInfo());
+        debitPage.ownerFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with short CVC Card")
+    void shouldFailShortCVCCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getShortCVCCardInfo());
+        debitPage.CVCFail();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
+    @DisplayName("Payment with empty fields Card")
+    void shouldFailFullyEmptyCard() {
+        MainPage mainPage = new MainPage();
+        DebitPage debitPage = mainPage.chooseDebitPage();
+        debitPage.fillForm(DataHelper.getNullCardInfo());
+        debitPage.notFilledForm();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
 }

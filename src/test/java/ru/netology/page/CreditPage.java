@@ -2,6 +2,7 @@ package ru.netology.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import ru.netology.data.CardInfo;
 
 import java.time.Duration;
 
@@ -32,6 +33,14 @@ public class CreditPage {
     public CreditPage() {
         creditHeading.shouldBe(Condition.visible);
     }
+    public void fillForm (CardInfo cardInfo) {
+        cardNumberField.setValue(cardInfo.getCardNumber());
+        monthField.setValue(cardInfo.getMonth());
+        yearField.setValue(cardInfo.getYear());
+        ownerField.setValue(cardInfo.getOwner());
+        CVCField.setValue(cardInfo.getCVC());
+        continueButton.click();
+    }
     public void notFilledForm () {
         continueButton.click();
         wrongCardField.shouldBe(Condition.visible);
@@ -42,10 +51,10 @@ public class CreditPage {
     }
 
     public void waitForSuccessedNotification() {
-        successedNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        successedNotification.shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
     public void waitForFailedNotification() {
-        failedNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        failedNotification.shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
     public void cardNumberFail () {
         wrongCardField.shouldBe(Condition.visible);
@@ -57,10 +66,10 @@ public class CreditPage {
         wrongYearField.shouldBe(Condition.visible);
     }
     public void ownerFail () {
-        wrongOwnerField.shouldBe(Condition.visible);
+        wrongOwnerField.shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
     public void CVCFail () {
         wrongCVCField.shouldBe(Condition.visible);
     }
-
+    public void expiredFail() { expiredCardNotification.shouldBe(Condition.visible); }
 }
