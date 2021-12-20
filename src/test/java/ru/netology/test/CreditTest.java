@@ -49,6 +49,15 @@ public class CreditTest {
         assertEquals("DECLINED", SqlUtils.findCreditRequestStatus());
     }
     @Test
+    @DisplayName("Credit with wrong Card number")
+    void shouldFailWringNumberCard() {
+        MainPage mainPage = new MainPage();
+        CreditPage creditPage = mainPage.chooseCreditPage();
+        creditPage.fillForm(DataHelper.getWrongCardInfo());
+        creditPage.waitForFailedNotification();
+        assertEquals("0", SqlUtils.findCountOrderEntity());
+    }
+    @Test
     @DisplayName("Credit with short number Card")
     void shouldFailShortNumberCard() {
         MainPage mainPage = new MainPage();
@@ -76,7 +85,7 @@ public class CreditTest {
         assertEquals("0", SqlUtils.findCountOrderEntity());
     }
     @Test
-    @DisplayName("Credit with future Card number")
+    @DisplayName("Credit with future Card year")
     void shouldFailFutureYearCard() {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();

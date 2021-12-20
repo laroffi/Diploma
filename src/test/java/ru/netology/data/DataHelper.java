@@ -29,7 +29,7 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4441", "28", "09", faker.name().fullName(), "111");
     }
     public static CardInfo getExpiredMonthCardInfo() {
-        return new CardInfo("4444 4444 4444 4441", "25", "10", faker.name().fullName(), "125");
+        return new CardInfo("4444 4444 4444 4441", "21", "10", faker.name().fullName(), "125");
     }
     public static CardInfo getWrongMonthCardInfo() {
         return new CardInfo("4444 4444 4444 4441", "23", "17", faker.name().fullName(), "123");

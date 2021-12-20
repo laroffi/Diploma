@@ -81,12 +81,12 @@ public class DebitTest {
     void shouldFailExpiredMonthCard() {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
-        debitPage.fillForm(DataHelper.getExpiredYearCardInfo());
+        debitPage.fillForm(DataHelper.getExpiredMonthCardInfo());
         debitPage.expiredFail();
         assertEquals("0", SqlUtils.findCountOrderEntity());
     }
     @Test
-    @DisplayName("Payment with future Card number")
+    @DisplayName("Payment with future Card year")
     void shouldFailFutureYearCard() {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
