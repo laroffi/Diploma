@@ -1,7 +1,7 @@
 HELP.md
 .gradle
 build/
-.allure
+
 ### STS ###
 .apt_generated
 .classpath
