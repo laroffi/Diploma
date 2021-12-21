@@ -10,7 +10,9 @@
 1. Скачать репозиторий командой `git clone https://github.com/laroffi/Diploma`
 2. Запустить контейнеры командой `docker-compose up -d`
 3. Запустить приложение командой `java -jar aqa-shop.jar`
-4. Кликнуть на тестовый класс DebitTest - запустить тесты кнопкой `Run` 
-5. Кликнуть на тестовый класс CreditTest - запустить тесты кнопкой `Run`
-6. Сформировать отчет командой `.\gradlew allureServe`
+4. Для работы с СУБД MySQL в файле **build.gradle** в Test указать `systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://localhost:3306/app')`
+5. Для работы с СУБД Postgres в файле **build.gradle** в Test указать`systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://localhost:5432/postgres')`
+6. Кликнуть на тестовый класс **DebitTest** - запустить тесты кнопкой `Run` 
+7. Кликнуть на тестовый класс **CreditTest** - запустить тесты кнопкой `Run`
+8. Сформировать отчет командой `.\gradlew allureServe`
 
