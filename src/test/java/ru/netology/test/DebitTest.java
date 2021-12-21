@@ -145,7 +145,7 @@ public class DebitTest {
     void shouldFailFullyEmptyCard() {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
-        debitPage.fillForm(DataHelper.getNullCardInfo());
+        debitPage.fillForm(DataHelper.getNotFilledCardInfo());
         debitPage.notFilledForm();
         assertEquals("0", SqlUtils.findCountOrderEntity());
     }
