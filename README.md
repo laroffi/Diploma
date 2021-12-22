@@ -12,7 +12,8 @@
 3. Запустить приложение командой `java -jar aqa-shop.jar`
 4. Для работы с СУБД MySQL в файле **build.gradle** в Test указать `systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://localhost:3306/app')`
 5. Для работы с СУБД Postgres в файле **build.gradle** в Test указать`systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://localhost:5432/postgres')`
-6. Кликнуть на тестовый класс **DebitTest** - запустить тесты кнопкой `Run` 
-7. Кликнуть на тестовый класс **CreditTest** - запустить тесты кнопкой `Run`
-8. Сформировать отчет командой `.\gradlew allureServe`
+6. Кликнуть на тестовый класс **Java** правой кнопкой мыши, нажать на `Run Tests in Diploma`
+7. Сформировать отчет командой `.\gradlew allureServe`
+8. Остановить приложение командой `Ctrl+C`
+9. Остарновить контейнеры командой `docker-compose down`
 
