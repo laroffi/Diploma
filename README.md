@@ -15,5 +15,5 @@
 6. Кликнуть на тестовый класс **Java** правой кнопкой мыши, нажать на `Run Tests in Diploma`
 7. Сформировать отчет командами `.\gradlew allureReport` и `.\gradlew allureServe`
 8. Остановить приложение командой `Ctrl+C`
-9. Остарновить контейнеры командой `docker-compose down`
+9. Остановить контейнеры командой `docker-compose down`
 
