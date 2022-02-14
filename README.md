@@ -12,9 +12,9 @@
 
 **Основная документация проекта**
 
-- [План автоматизации проекта](https://github.com/laroffi/Diploma/blob/master/Docs/Plan.md")
-- [Отчет по итогам тестирования](https://github.com/laroffi/Diploma/blob/master/Docs/Report.md")
-- [Отчет по итогам автоматизации](https://github.com/laroffi/Diploma/blob/master/Docs/Summary.md")
+- [План автоматизации проекта](https://github.com/laroffi/Diploma/blob/master/Docs/Plan.md)
+- [Отчет по итогам тестирования](https://github.com/laroffi/Diploma/blob/master/Docs/Report.md)
+- [Отчет по итогам автоматизации](https://github.com/laroffi/Diploma/blob/master/Docs/Summary.md)
 
 ****Запуск тестов****
 
